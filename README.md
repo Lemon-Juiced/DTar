@@ -18,6 +18,7 @@ Creates a tarball from the specified directory or file using the `tar` utility.
 Extracts the contents of a .tar file using the `tar` utility.
 
 ## tarbzip
+To Do: Will be for bzip2
 
 ## tarbzipex
 
@@ -25,9 +26,11 @@ Extracts the contents of a .tar file using the `tar` utility.
 Lists the contents of a tarball (tar archive) using the `tar` command-line utility.
 
 ## tarxzip
+To Do: Will be for xz
 
 ## tarxzipex
 
 ## tarzip
+To Do: Will be for gz
 
 ## tarzipex
