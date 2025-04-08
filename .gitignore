@@ -1,0 +1,7 @@
+*.exe
+*.tar
+*.tar.*
+*.txt
+
+/tarball/tarball
+/tarlist/tarlist
