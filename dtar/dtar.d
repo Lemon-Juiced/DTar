@@ -26,16 +26,18 @@ void main(string[] args) {
         writeln(blue("dtar") ~ " " ~ cyan("-help") ~ ": Lists all the commands provided by the dtar suite.");
         writeln(blue("dtar") ~ " " ~ cyan("-version") ~ ": Displays the version of the dtar suite.");
         writeln(green ("Available commands:"));
-        writeln(blue("tarball") ~ " " ~ cyan("<path>") ~ " " ~ yellow("[output]") ~ ": Creates a tarball from the specified directory or file.");
+        writeln(blue("tarball") ~ " " ~ cyan("<path>") ~ " " ~ yellow("[output]") ~ 
+            ": Creates a tarball from the specified directory or file.");
+        writeln(blue("tarballex") ~ " " ~ cyan("<archive>") ~ " " ~ yellow("[path]") ~ 
+            ": Extracts the contents of a tarball to the specified path.");
         writeln(blue("tarlist") ~ " " ~ cyan("<archive>") ~ ": Lists the contents of a tarball (tar archive).");
     } else if (command == "-version") {
-        writeln("dtar version: " ~ red("0.0.1"));
+        writeln("dtar version: " ~ red("0.0.2"));
         writeln("Release date: 2025-04-07");
     } else {
         writeln("Unknown command: ", command);
         writeln("Use 'dtar -help' for a list of available commands.");
     }
-
 }
 
 string green(string str) {

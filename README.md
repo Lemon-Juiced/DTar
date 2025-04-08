@@ -15,6 +15,7 @@ Inlcudes:
 Creates a tarball from the specified directory or file using the `tar` utility.
 
 ## tarballex
+Extracts the contents of a .tar file using the `tar` utility.
 
 ## tarbzip
 
