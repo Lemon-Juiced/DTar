@@ -5,25 +5,47 @@ DFLAGS = -O -release
 # List of utilities
 UTILS = dtar taradd tarball tarballex tarbzip tarbzipex targzip targzipex tarlist tarxzip tarxzipex tarzip
 
-# Default target: Build all utilities for both platforms
-all: windows linux
+# Output directories for binaries
+BIN_DIR = bin
+WIN_DIR = $(BIN_DIR)/windows
+LINUX_DIR = $(BIN_DIR)/linux
+
+# Archive names
+ZIP_ARCHIVE = $(BIN_DIR)/DTar.zip
+TAR_ARCHIVE = $(BIN_DIR)/DTar.tar.gz
+
+# Default target: Build all utilities for both platforms and create archives
+all: $(WIN_DIR) $(LINUX_DIR) windows linux archive
+
+# Create the bin directories if they don't exist
+$(WIN_DIR) $(LINUX_DIR):
+	mkdir -p $@
 
 # Build all utilities for Windows
-windows: $(UTILS:%=%.exe)
+windows: $(UTILS:%=$(WIN_DIR)/%.exe)
 
 # Build all utilities for Linux
-linux: $(UTILS)
+linux: $(UTILS:%=$(LINUX_DIR)/%)
 
 # Rule to build a utility for Windows
-%.exe: %.d
+$(WIN_DIR)/%.exe: %.d | $(WIN_DIR)
 	$(DC) $(DFLAGS) -of=$@ $<
-	rm -f $*.obj
+	rm -f $(WIN_DIR)/$*.obj
 
 # Rule to build a utility for Linux
-%: %.d
+$(LINUX_DIR)/%: %.d | $(LINUX_DIR)
 	$(DC) $(DFLAGS) -of=$@ $<
-	rm -f $*.obj
+	rm -f $(LINUX_DIR)/$*.obj
 
-# Clean up build artifacts
+# Create archives (zip and tar.gz)
+archive: $(ZIP_ARCHIVE) $(TAR_ARCHIVE)
+
+$(ZIP_ARCHIVE): $(WIN_DIR) $(LINUX_DIR)
+	powershell -Command "Compress-Archive -Path $(BIN_DIR) -DestinationPath $@"
+
+$(TAR_ARCHIVE): $(WIN_DIR) $(LINUX_DIR)
+	tar -cvzf $@ $(BIN_DIR)
+
+# Clean up build artifacts and archives
 clean:
-	rm -f $(UTILS:%=%.exe) $(UTILS) *.obj
+	rm -rf $(BIN_DIR)

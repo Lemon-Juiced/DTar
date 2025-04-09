@@ -1,7 +1,11 @@
-*.exe
+# Ignore all tar files except the archives in the bin directory
 *.tar
 *.tar.*
-*.txt
+!bin/DTar.tar.gz
 
-/tarball/tarball
-/tarlist/tarlist
+# Ignore all text and obj files
+*.txt
+*.obj
+
+# Allow the zip archive in the bin directory
+!bin/DTar.zip

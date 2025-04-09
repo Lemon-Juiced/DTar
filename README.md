@@ -1,5 +1,7 @@
 # DTar
-DTar, or tar for dummies written in D, is a suite of free and open-source command-line tools for working with tar archives.
+DTar, or "tar for dummies" written in D, is a suite of free and open-source command-line tools for working with tar archives. It simplifies common tasks like creating, extracting, and listing tarballs, while supporting multiple compression formats (gzip, bzip2, xz).
+
+Whether you're a developer, system administrator, or just someone who frequently works with tar archives, DTar provides an easy-to-use and consistent interface for managing your files.
 
 ## Tools
 1. **dtar**: The non-tar based housekeeping commands for the suite.
@@ -44,7 +46,7 @@ tarbzip <path> [output]
 
 ### tarbzipex
 ```bash
-tarbzipex <archive> [path
+tarbzipex <archive> [path]
 ```
 
 ### targzip
@@ -54,7 +56,7 @@ targzip <path> [output]
 
 ### targzipex
 ```bash
-targzipex <archive> [path}
+targzipex <archive> [path]
 ```
 
 ### tarlist
@@ -69,7 +71,7 @@ tarxzip <path> [output]
 
 ### tarxzipex
 ```bash
-tarxzipex <archive> [path
+tarxzipex <archive> [path]
 ```
 
 ### tarzip
@@ -78,5 +80,35 @@ tarzip <path> [compression] [output]
 ```
 
 ## System Requirements
-- `tar` must be installed in your system's `PATH`.
-- Compatible with Windows, Linux, and macOS.
+- `tar` must be installed and accessible in your system's `PATH`.
+- Compatible with:
+  - Windows (requires PowerShell for `.zip` creation).
+  - Linux.
+  - macOS.
+- The DMD compiler is required to build the tools from source.
+
+## Prebuilt Binaries
+Prebuilt binaries are available for download:  
+- Coming Soon
+
+These archives contain:
+- Windows binaries in `bin/windows/`
+- Linux binaries in `bin/linux/`
+  
+You can download and extract the appropriate archive for your platform.
+
+## Building the Tools
+To build all utilities and create archives, ensure you have the DMD compiler, Make, and zip installed and run:
+```bash
+make
+```
+
+This will generate:
+- Windows binaries in bin/windows/
+- Linux binaries in bin/linux/
+- Archives: bin/DTar.zip and bin/DTar.tar.gz
+
+To clean up all build artifacts and archives, run:
+```bash
+make clean
+```
