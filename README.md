@@ -76,3 +76,7 @@ tarxzipex <archive> [path
 ```bash
 tarzip <path> [compression] [output]
 ```
+
+## System Requirements
+- `tar` must be installed in your system's `PATH`.
+- Compatible with Windows, Linux, and macOS.
