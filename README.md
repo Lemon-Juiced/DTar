@@ -1,43 +1,78 @@
 # DTar
-DTar, or dummy `tar` - in other words `tar` for dummies, is an application suite meant to simplify `tar` commands to be easier for other users.  
-These programs essentially function as wrappers for `tar` commands as a result.  
-DTar also plays off its name by being written in D.  
+DTar, or tar for dummies written in D, is a suite of free and open-source command-line tools for working with tar archives.
 
-## dtar
-Non-`tar` based commands for the `dtar` command-line suite. 
-Inlcudes:
-- `dtar -help`: Lists all the commands provided by the `dtar` suite.
-- `dtar -version`: Displays the version of the `dtar` suite.
+## Tools
+1. **dtar**: The non-tar based housekeeping commands for the suite.
+2. **taradd**: Adds a file or directory to a tarball.
+3. **tarball**: Creates a tarball from a given file or directory.
+4. **tarballex**: Extracts the contents of a given tarball.
+5. **tarbzip**: Creates a tarball from a given file or directory with bzip2 compression.
+6. **tarbzipex**: Extracts the contents of a given tarball with bzip2 compression.
+7. **targzip**: Creates a tarball from a given file or directory with gzip compression.
+8. **targzipex**: Extracts the contents of a given tarball with gzip compression.
+9. **tarlist**: Lists the contents of a given tar archive to the console.
+10. **tarxzip**: Creates a tarball from a given file or directory with xz compression.
+11. **tarxzipex**: Extracts the contents of a given tarball with xz compression.
+12. **tarzip**: Creates a tarball from a given file or directory with a user specified compression.
 
-## taradd
-Adds a file or directory to a tarball using the `tar` command-line utility.
+## Usage
+### dtar
+```bash
+dtar -help
+dtar -version
+```
 
-## tarball
-Creates a tarball from the specified directory or file using the `tar` command-line utility.
+### taradd
+```bash
+taradd <archive> <file>
+```
 
-## tarballex
-Extracts the contents of a .tar file using the `tar` command-line utility.
+### tarball
+```bash
+tarball <path> [output]
+```
 
-## tarbzip
-Creates a tarball and compresses a given file or directory with bzip2 compression using the `tar` command-line utility.
+### tarballex
+```bash
+tarballex <archive> [path]
+```
 
-## tarbzipex
-Extracts the contents of a .tar.bz2 file using the `tar` command-line utility.
+### tarbzip
+```bash
+tarbzip <path> [output]
+```
 
-## targzip
-Creates a tarball and compresses a given file or directory with gzip compression using the `tar` command-line utility.
+### tarbzipex
+```bash
+tarbzipex <archive> [path
+```
 
-## targzipex
-Extracts the contents of a .tar.gz file using the `tar` command-line utility.
+### targzip
+```bash
+targzip <path> [output]
+```
 
-## tarlist
-Lists the contents of a tarball (tar archive) using the `tar` command-line utility.
+### targzipex
+```bash
+targzipex <archive> [path}
+```
 
-## tarxzip
-Creates a tarball and compresses a given file or directory with xz compression using the `tar` command-line utility.
+### tarlist
+```bash
+tarlist <archive> 
+```
 
-## tarxzipex
-Extracts the contents of a .tar.xz file using the `tar` command-line utility.
+### tarxzip
+```bash
+tarxzip <path> [output]
+```
 
-## tarzip
-Creates a tarball and compresses a given file or directory with a specified compression type using the `tar` command-line utility.
+### tarxzipex
+```bash
+tarxzipex <archive> [path
+```
+
+### tarzip
+```bash
+tarzip <path> [compression] [output]
+```
