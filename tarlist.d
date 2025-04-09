@@ -1,4 +1,4 @@
-module tarlist.tarlist;
+module tarlist;
 
 import std.array;
 import std.process;

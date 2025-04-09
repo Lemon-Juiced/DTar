@@ -1,22 +1,23 @@
-module targzip.targzip;
+module tarxzip;
+
 import std.array;
 import std.file;
 import std.process;
 import std.stdio;
 
 /**
- * Creates a tarball and compresses a given file or directory with gzip compression using the `tar` command-line utility.
+ * Creates a tarball and compresses a given file or directory with xz compression using the `tar` command-line utility.
  * 
  * Parameters:
  * - path: Path to the directory or file to archive.
- * - output (optional): Destination path for the tarball. Defaults to `<path>.tar.gz`.
+ * - output (optional): Destination path for the tarball. Defaults to `<path>.tar.xz`.
  * 
  * @param args Command-line arguments
  */
 void main(string[] args) {
     // Check if the correct number of arguments is provided
     if (args.length < 2 || args.length > 3) {
-        writeln("Usage: targzip <path> [output]");
+        writeln("Usage: tarxzip <path> [output]");
         return;
     }
 
@@ -25,7 +26,7 @@ void main(string[] args) {
     path = args[1].replace("\\", "/"); // Normalize to forward slashes
     string output;
     if (args.length == 3) output = args[2].replace("\\", "/"); // Normalize to forward slashes
-    else output = path ~ ".tar.gz"; // If no output is provided, use the current working directory and the name of the input path
+    else output = path ~ ".tar.xz"; // If no output is provided, use the current working directory and the name of the input path
 
     // Check if the path exists
     if (!exists(path)) {
@@ -33,8 +34,8 @@ void main(string[] args) {
         return;
     }
 
-    // Create the tarball using the tar command with gzip compression
-    string command = "tar -cvzf " ~ output ~ " " ~ path;
+    // Create the tarball using the tar command with xz compression
+    string command = "tar -cvJf " ~ output ~ " " ~ path;
     try {
         auto result = executeShell(command);
         if (result.status != 0) {

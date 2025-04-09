@@ -1,4 +1,4 @@
-module tarzip.tarzip;
+module tarzip;
 
 import std.array;
 import std.file;

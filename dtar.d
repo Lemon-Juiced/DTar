@@ -1,4 +1,4 @@
-module dtar.dtar;
+module dtar;
 
 import std.stdio;
 import std.string;

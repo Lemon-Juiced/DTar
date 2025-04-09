@@ -1,4 +1,4 @@
-module taradd.taradd;
+module taradd;
 
 import std.array;
 import std.file;
