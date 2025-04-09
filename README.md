@@ -10,27 +10,34 @@ Inlcudes:
 - `dtar -version`: Displays the version of the `dtar` suite.
 
 ## taradd
+Adds a file or directory to a tarball using the `tar` command-line utility.
 
 ## tarball
-Creates a tarball from the specified directory or file using the `tar` utility.
+Creates a tarball from the specified directory or file using the `tar` command-line utility.
 
 ## tarballex
-Extracts the contents of a .tar file using the `tar` utility.
+Extracts the contents of a .tar file using the `tar` command-line utility.
 
 ## tarbzip
-To Do: Will be for bzip2
+Creates a tarball and compresses a given file or directory with bzip2 compression using the `tar` command-line utility.
 
 ## tarbzipex
+Extracts the contents of a .tar.bz2 file using the `tar` command-line utility.
+
+## targzip
+Creates a tarball and compresses a given file or directory with gzip compression using the `tar` command-line utility.
+
+## targzipex
+Extracts the contents of a .tar.gz file using the `tar` command-line utility.
 
 ## tarlist
 Lists the contents of a tarball (tar archive) using the `tar` command-line utility.
 
 ## tarxzip
-To Do: Will be for xz
+Creates a tarball and compresses a given file or directory with xz compression using the `tar` command-line utility.
 
 ## tarxzipex
+Extracts the contents of a .tar.xz file using the `tar` command-line utility.
 
 ## tarzip
-To Do: Will be for gz
-
-## tarzipex
+Creates a tarball and compresses a given file or directory with a specified compression type using the `tar` command-line utility.

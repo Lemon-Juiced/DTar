@@ -1,11 +1,11 @@
-module tarballex.tarballex;
+module tarxzipex.tarxzipex;
 
 import std.array;
 import std.process;
 import std.stdio;
 
 /**
- * Extracts the contents of a .tar file using the `tar` command-line utility.
+ * Extracts the contents of a .tar.xz file using the `tar` command-line utility.
  * 
  * Parameters:
  * - archive: The path to the archive file to be extracted.
@@ -16,7 +16,7 @@ import std.stdio;
 void main(string[] args) {
     // Check if the correct number of arguments is provided
     if (args.length < 2 || args.length > 3) {
-        writeln("Usage: tarballex <archive> [path]");
+        writeln("Usage: tarxzipex <archive> [path]");
         return;
     }
 
@@ -27,8 +27,8 @@ void main(string[] args) {
     if (args.length == 3) path = args[2].replace("\\", "/"); // Normalize to forward slashes
     else path = "."; // If no path is provided, use the current working directory
 
-    // Extract the contents of the tarball using the tar command
-    string command = "tar -xvf " ~ archive ~ " -C " ~ path;
+    // Extract the contents of the tarball using the tar command with xz decompression
+    string command = "tar --strip-components=1 -xvJf " ~ archive ~ " -C " ~ path;
     try {
         auto result = executeShell(command);
         if (result.status != 0) {
