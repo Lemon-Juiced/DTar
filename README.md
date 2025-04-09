@@ -89,7 +89,7 @@ tarzip <path> [compression] [output]
 
 ## Prebuilt Binaries
 Prebuilt binaries are available for download:  
-- Coming Soon
+- [Releases](https://github.com/Lemon-Juiced/DTar/releases/)
 
 These archives contain:
 - Windows binaries in `bin/windows/`
