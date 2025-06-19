@@ -9,6 +9,3 @@
 
 # Ignore the bin directory and its contents
 bin/*
-
-# Allow the zip archive in the bin directory
-!bin/DTar.zip

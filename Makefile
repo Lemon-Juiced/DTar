@@ -40,11 +40,11 @@ $(LINUX_DIR)/%: %.d | $(LINUX_DIR)
 # Create archives (zip and tar.gz)
 archive: $(ZIP_ARCHIVE) $(TAR_ARCHIVE)
 
-$(ZIP_ARCHIVE): $(WIN_DIR) $(LINUX_DIR)
-	powershell -Command "Compress-Archive -Path $(BIN_DIR) -DestinationPath $@"
+$(ZIP_ARCHIVE): $(WIN_DIR)
+	powershell -Command "Compress-Archive -Path $(WIN_DIR)\* -DestinationPath $@"
 
-$(TAR_ARCHIVE): $(WIN_DIR) $(LINUX_DIR)
-	tar -cvzf $@ $(BIN_DIR)
+$(TAR_ARCHIVE): $(LINUX_DIR)
+	tar -cvzf $@ -C $(LINUX_DIR) .
 
 # Clean up build artifacts and archives
 clean:
