@@ -27,8 +27,8 @@ $(WIN_DIR) $(LINUX_DIR):
 # Build all utilities for Windows
 windows: $(UTILS:%=$(WIN_DIR)/%.exe)
 
-# Build all utilities for Linux
-linux: $(UTILS:%=$(LINUX_DIR)/%)
+# Build all utilities for Linux and copy man pages
+linux: $(UTILS:%=$(LINUX_DIR)/%) manpages_linux
 
 # Rule to build a utility for Windows
 $(WIN_DIR)/%.exe: %.d | $(WIN_DIR)
@@ -53,6 +53,9 @@ $(ZIP_ARCHIVE): $(WIN_DIR)
 
 $(TAR_ARCHIVE): $(LINUX_DIR) manpages_linux
 	tar -cvzf $@ -C $(LINUX_DIR) .
+
+# Create Linux tar.gz archive (binaries + man pages)
+tarball: linux $(TAR_ARCHIVE)
 
 # Clean up build artifacts and archives
 clean:
