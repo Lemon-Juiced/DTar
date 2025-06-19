@@ -52,6 +52,7 @@ $(ZIP_ARCHIVE): $(WIN_DIR)
 	powershell -Command "Compress-Archive -Path $(WIN_DIR)\* -DestinationPath $@"
 
 $(TAR_ARCHIVE): $(LINUX_DIR) manpages_linux
+	find $(LINUX_DIR) -name "*.o" -delete
 	tar -cvzf $@ -C $(LINUX_DIR) .
 
 # Create Linux tar.gz archive (binaries + man pages)
